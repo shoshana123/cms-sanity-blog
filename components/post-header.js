@@ -3,7 +3,7 @@ import Date from '../components/date'
 import CoverImage from '../components/cover-image'
 import PostTitle from '../components/post-title'
 
-export default function PostHeader({ title, coverImage, date, author }) {
+export default function PostHeader({ title, coverImage, date, author, categories, tags }) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -20,6 +20,26 @@ export default function PostHeader({ title, coverImage, date, author }) {
         <div className="mb-6 text-lg">
           <Date dateString={date} />
         </div>
+        <div style={{display: 'flex'}}>
+          <div style={{width: '50%'}}>
+          <h4  className="text-lg leading-relaxed text-3xl">Categories: </h4>
+          {categories && categories.map((category,index)=>{
+            if(index<categories.length-1){
+              return <span key={category} className="text-lg leading-relaxed mb-4 ">{category}, </span>;
+            }
+            else return <span key={category} className="text-lg leading-relaxed mb-4 ">{category}</span>;
+          })}
+          </div>
+          <div style={{width: '50%'}}>
+          <h4 className="text-lg leading-relaxed text-3xl">Tags: </h4>
+          {tags && tags.map((tag,index)=>{
+            if(index<tags.length-1){
+              return <span key={tag} className="text-lg leading-relaxed mb-4 ">{tag}, </span>;
+            }
+            else return <span key={tag} className="text-lg leading-relaxed mb-4 ">{tag}</span>;
+          })}
+          </div>
+          </div>
       </div>
     </>
   )

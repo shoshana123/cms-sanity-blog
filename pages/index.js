@@ -14,7 +14,7 @@ export default function Index({ allPosts, preview }) {
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Zego Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
           <Intro />
@@ -26,6 +26,8 @@ export default function Index({ allPosts, preview }) {
               author={heroPost.author}
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
+              categories={heroPost.categories}
+              tags={heroPost.tags}
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
